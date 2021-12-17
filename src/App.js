@@ -15,7 +15,6 @@ function App() {
       id: Math.random(),
       title : "Conjuring 3",
       posterUrl:"https://www.mediacritik.com/wp-content/uploads/2020/07/the-con-696x431.jpg",
-      
       rating:5
       
       },

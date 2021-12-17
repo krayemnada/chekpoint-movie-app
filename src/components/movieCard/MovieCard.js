@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import StarRating from 'react-star-rating';
+import StarRatingComponent from "react-star-rating-component";
+
 const MovieCard = ({Movie}) => {
   console.log(Movie)
 
@@ -15,7 +16,12 @@ const MovieCard = ({Movie}) => {
       Some quick example text to build on the card title and make up the bulk of
       the card's content.
     </Card.Text>
-    <Card.Text><StarRating name="small-rating" caption="Small!" size={30} totalStars={5} rating={Movie.rating} />
+    <Card.Text><StarRatingComponent
+                        name="rate"
+                        editing={false}
+                        starCount={5}
+                        value={Movie.rating}
+                    />
       </Card.Text>
   </Card.Body>
 </Card>
