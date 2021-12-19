@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-// import StarRatingComponent from "react-star-rating-component";
+import ReactStars from "react-rating-stars-component";
 import "./MovieCard.css"
-const MovieCard = ({Movie}) => {
-  console.log(Movie)
+const MovieCard = ({Movie, filtermovie}) => {
+ 
 
   return (
    
@@ -12,20 +12,22 @@ const MovieCard = ({Movie}) => {
   
     <div className='movie'>
    
-      <Card style={{ width: '18rem'}} className='card'>
+      <Card style={{ width: '18rem' , height:'550px'}} className='card'>
   <Card.Img variant="top"  src={Movie.posterUrl} height={300} width={200}/>
   <Card.Body>
     <Card.Title style={{color:"orange"}}>{Movie.title}</Card.Title>
     <Card.Text>
      {Movie.description}
     </Card.Text>
-    {/* <Card.Text><StarRating
-                        name="rate"
-                        editing={false}
-                        starCount={5}
-                        value={Movie.rating}
-                    /> 
-       </Card.Text> */}
+    <Card.Text><ReactStars
+    count={Movie.rating}
+    // onChange={ratingChanged}
+    edit ={false}
+    size={24}
+    activeColor="#ffff00"
+    color="#ffd700"
+  />
+       </Card.Text>
   </Card.Body>
 </Card>
 

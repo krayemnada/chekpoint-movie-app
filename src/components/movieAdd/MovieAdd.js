@@ -5,6 +5,7 @@ import { Modal, Button } from 'react-bootstrap'
 const MovieAdd = ({handleAdd}) => {
     
     const [text, setText] = useState({  title:"",
+    id:Math.random(),
     description:"",
     posteUrl:"",
     rating:0})

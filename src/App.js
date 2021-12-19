@@ -9,6 +9,8 @@ import MovieList from './components/movieList/MovieList';
 import MovieAdd from './components/movieAdd/MovieAdd';
 
 
+
+
 function App() {
   const [movieData, setMovieData]= useState([
     {
@@ -46,7 +48,7 @@ function App() {
         id: Math.random(),
       title : "The Curse of la llorona",
       posterUrl:"https://dci832c741skk.cloudfront.net/assets/files/10206/curse-of-la-llorona-movie-review.800x600.jpg",
-      rating:5,
+      rating:4,
       description : "Ignoring the eerie warning of a troubled mother suspected of child endangerment"
       
       },
@@ -54,7 +56,7 @@ function App() {
         id: Math.random(),
       title : "To All the Boys",
       posterUrl:"https://upload.wikimedia.org/wikipedia/en/d/d0/To_all_the_boys_always_and_forever.jpg",
-      rating:6,
+      rating:1,
       description : "Lara Jean Covey writes letters to all of her past loves, the letters are meant for her eyes only."
       
       },
@@ -70,7 +72,7 @@ function App() {
         id: Math.random(),
       title : "A Quiet Place Part II",
       posterUrl:"https://m.media-amazon.com/images/M/MV5BMTE2ODU4NDEtNmRjNS00OTk1LTg4NmMtNTAzYzVlNzJmYjgzXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
-      rating:4,
+      rating:2,
       description : "With the newly acquired knowledge of the seemingly invulnerable creatures' weakness, grief-stricken Evelyn Abbott finds herself on her own, with two young teens,"
       
       },
@@ -78,7 +80,7 @@ function App() {
         id: Math.random(),
       title : "Gravity",
       posterUrl:"https://fr.web.img6.acsta.net/pictures/210/232/21023233_20130729173134181.jpg",
-      rating:4,
+      rating:2,
       description : "Dr. Ryan Stone (Sandra Bullock) is a brilliant medical engineer on her first shuttle mission, with veteran astronaut Matt Kowalski (George Clooney) in command of his last flight before retiring."
       
       },
@@ -86,14 +88,14 @@ function App() {
         id: Math.random(),
       title : "Get Out",
       posterUrl:"https://upload.wikimedia.org/wikipedia/en/a/a3/Get_Out_poster.png",
-      rating:7,
+      rating:4,
       description : "Chris and his girlfriend Rose go upstate to visit her parents for the weekend."
       },
       {
         id: Math.random(),
       title : "X-MEN",
       posterUrl:"https://fr.web.img6.acsta.net/pictures/16/04/13/17/27/399447.jpg",
-      rating:5,
+      rating:1,
       description : "Since the dawn of civilization, he was worshiped as a god. Apocalypse, the first and most powerful mutant from Marvel's X-Men universe,"
       
       },
@@ -109,7 +111,7 @@ function App() {
         id: Math.random(),
       title : "Harry Potter and the half-blood prince",
       posterUrl:"https://play-lh.googleusercontent.com/L8RMA1CQCx-CAxzTfyF-5Vh-pSJwIbr1qIxy9LUOclzkg5N1CFbsQctYT19IEuPfIZa1PzKep9191naqTao",
-      rating:5,
+      rating:2,
       description : "In Harry Potter's (Daniel Radcliffe's) sixth year at Hogwarts School of Witchcraft, he finds a book marked mysteriously, "
       
       },
@@ -118,7 +120,7 @@ function App() {
         id: Math.random(),
       title : "Insidious the last key",
       posterUrl:"https://upload.wikimedia.org/wikipedia/en/3/34/InsidiousTheLastKey.jpg",
-      rating:6,
+      rating:3,
       description : "The parapsychologist Dr. Elise Rainier has nightmares with her childhood in New Mexico,"
       
       },
@@ -135,20 +137,36 @@ function App() {
       )
  
       const [isShow, setIsShow]= useState(false)
+      const [rate,setRate] = useState(1)
       const handleShow = () =>{
           setIsShow(!isShow)
       }
       const handleAdd =(newMovie) =>{
-        setMovieData([...movieData,{id:Math.random(),title:newMovie,description:newMovie,rating:newMovie}])
+        setMovieData([...movieData, newMovie])
+        setIsShow(false)
       }
+      const [searchItem,setSearchItem] = useState("");
+      const handleChange=(event) => {
+        setSearchItem(event.target.value);
+      };
+      const ratingChanged=(newRating) =>{
+        setRate(newRating)
+      }
+        
+      const filteredMovies = movieData.filter((movie) =>
+      movie.title.toLowerCase().includes(searchItem.toLowerCase())  && movie.rating >= rate
+      );
+      
   return (
     <div className="App">
-      <Header/>
+      <Header handleChange={handleChange} ratingChanged={ratingChanged}/>
+
       <Pictures/>
-      <SideBar/>
-      <MovieList movieData={movieData}/>
-      <button onClick={handleShow} style={{color:"orange"}} className='add'>Add</button>
-     {isShow ? <MovieAdd handleAdd={handleAdd}/> : null}
+      <SideBar handleShow={handleShow}/>
+      {isShow ? <MovieAdd handleAdd={handleAdd}/> : null}
+      <MovieList movieData={filteredMovies}/>
+   
+    
      
     </div>
   );

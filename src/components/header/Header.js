@@ -1,7 +1,11 @@
 import React from 'react'
 import { Container, Form, FormControl, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap'
+import ReactStars from "react-rating-stars-component";
 import "./Header.css"
-const Header = () => {
+
+const Header = ({handleChange,ratingChanged}) => {
+  
+  
   return (
     <div >
       <Navbar className='nav'>
@@ -40,16 +44,26 @@ const Header = () => {
         </NavDropdown>
         <Nav.Link href="#action1" style={{color : "black"}} ><strong>Series</strong></Nav.Link>
         <Nav.Link href="#action1" style={{color : "orange"}} className='mov'><strong>Movies</strong></Nav.Link>
-
+        
        
       </Nav>
+      <ReactStars
+    count={5}
+    onChange={ratingChanged}
+    size={24}
+    activeColor="#ffd700"
+  />
       <Form className="d-flex">
         <FormControl
           type="search"
-          placeholder="Search"
+          placeholder="Search..."
           className="me-2"
           aria-label="Search"
+          onChange={handleChange}
+          
+
         />
+
         
       </Form>
       <Button style={{color : "black"}}>Sing In</Button>
