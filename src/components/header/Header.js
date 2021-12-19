@@ -15,7 +15,7 @@ const Header = () => {
         navbarScroll
       >
         <Nav.Link href="#action1" style={{color : "black"}} ><strong>Home</strong></Nav.Link>
-        <Nav.Link href="#action2" style={{color : "black"}} ><strong>Login</strong></Nav.Link>
+        <Nav.Link href="#action2" style={{color : "black"}} ><strong>Log In</strong></Nav.Link>
         <NavDropdown title={<strong style={{color:"black"}}>Type Of Movies</strong> }  className="title" id="navbarScrollingDropdown"bg="dark" variant="dark" >
          <div className="list">
          <NavDropdown.Item href="#action3" >Action</NavDropdown.Item>

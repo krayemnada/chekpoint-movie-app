@@ -147,7 +147,7 @@ function App() {
       <Pictures/>
       <SideBar/>
       <MovieList movieData={movieData}/>
-      <button onClick={handleShow}>Add</button>
+      <button onClick={handleShow} style={{color:"orange"}} className='add'>Add</button>
      {isShow ? <MovieAdd handleAdd={handleAdd}/> : null}
      
     </div>
