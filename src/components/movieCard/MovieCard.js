@@ -6,7 +6,7 @@ const MovieCard = ({Movie}) => {
   console.log(Movie)
 
   return (
-    <div className='back'>
+   
     
    <div className='all'>
   
@@ -31,7 +31,8 @@ const MovieCard = ({Movie}) => {
 
     </div>
 
-    </div>
+   
+   
     </div>
   )
 }
