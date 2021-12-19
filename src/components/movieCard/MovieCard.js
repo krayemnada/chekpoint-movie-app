@@ -1,30 +1,37 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import StarRatingComponent from "react-star-rating-component";
-
+// import StarRatingComponent from "react-star-rating-component";
+import "./MovieCard.css"
 const MovieCard = ({Movie}) => {
   console.log(Movie)
 
   return (
+    <div className='back'>
+    
+   <div className='all'>
+  
+    <div className='movie'>
    
-    <div>
-      <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={Movie.posterUrl}/>
+      <Card style={{ width: '18rem'}} className='card'>
+  <Card.Img variant="top"  src={Movie.posterUrl} height={300} width={200}/>
   <Card.Body>
     <Card.Title>{Movie.title}</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+     {Movie.description}
     </Card.Text>
-    <Card.Text><StarRatingComponent
+    {/* <Card.Text><StarRating
                         name="rate"
                         editing={false}
                         starCount={5}
                         value={Movie.rating}
-                    />
-      </Card.Text>
+                    /> 
+       </Card.Text> */}
   </Card.Body>
 </Card>
+
+    </div>
+
+    </div>
     </div>
   )
 }
