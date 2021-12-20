@@ -7,7 +7,7 @@ const MovieAdd = ({handleAdd}) => {
     const [text, setText] = useState({  title:"",
     id:Math.random(),
     description:"",
-    posteUrl:"",
+    posterUrl:"",
     rating:0})
     const handleSumbit = (e) =>{
         setText({...text,[e.target.name] : e.target.value})
@@ -24,12 +24,14 @@ const MovieAdd = ({handleAdd}) => {
       <table>
     <div>
         <div>
-           <td> <label className='input' >Title:</label></td>
+           <td> 
+             {""}
+             <label className='input' >Title:</label></td>
             <td><input type="text" name='title' onChange={handleSumbit}  /></td>
         </div>
         <div>
            <td> <label className='input'>Image:</label></td>
-           <td><input type="text" name='posteUrl' onChange={handleSumbit} /></td>
+           <td><input type="text" name='posterUrl' onChange={handleSumbit} /></td>
         </div>
         <div>
         <td> <label className='input'>Description:</label></td>
