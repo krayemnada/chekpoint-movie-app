@@ -13,10 +13,10 @@ const MovieAdd = ({handleAdd}) => {
         setText({...text,[e.target.name] : e.target.value})
     }
   return (
-    <div className='add'>
+    <div >
        
-      <Modal.Dialog className='add1' >
-  <Modal.Header closeButton>
+      <Modal.Dialog style={{backgroundColor:'black'}} >
+  <Modal.Header closeButton style={{backgroundColor:'black'}}>
     <Modal.Title style={{color:'orange'}}>Add new movie</Modal.Title>
   </Modal.Header>
 

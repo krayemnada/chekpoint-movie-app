@@ -157,6 +157,9 @@ function App() {
       movie.title.toLowerCase().includes(searchItem.toLowerCase())  && movie.rating >= rate
       );
       
+      const handleDelete =(idMovie) =>{
+        setMovieData(movieData.filter((el) => el.id !== idMovie))
+      }
   return (
     <div className="App">
       <Header handleChange={handleChange} ratingChanged={ratingChanged}/>
@@ -164,7 +167,7 @@ function App() {
       <Pictures/>
       <SideBar handleShow={handleShow}/>
       {isShow ? <MovieAdd handleAdd={handleAdd}/> : null}
-      <MovieList movieData={filteredMovies}/>
+      <MovieList movieData={filteredMovies} handleDelete={handleDelete}/>
    
     
      
