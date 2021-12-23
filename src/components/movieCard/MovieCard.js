@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 import "./MovieCard.css"
 const MovieCard = ({Movie, filtermovie , handleDelete}) => {
  
@@ -15,6 +16,7 @@ const MovieCard = ({Movie, filtermovie , handleDelete}) => {
       <Card style={{ width: '18rem' , height:'600px'}} className='card' >
   <Card.Img variant="top"  src={Movie.posterUrl} height={300} width={200}/>
   <Card.Body>
+  
     <Card.Title style={{color:"orange"}}>{Movie.title}</Card.Title>
     <Card.Text>
      {Movie.description}
@@ -29,7 +31,7 @@ const MovieCard = ({Movie, filtermovie , handleDelete}) => {
   />
        </Card.Text>
        <Button variant="primary" className='button' onClick={()=>handleDelete(Movie.id) }>Delete</Button>
-      
+       <Link to={`/movies/${Movie.id}`}><Button variant="primary" className='button' >Watch</Button></Link>
   </Card.Body>
 </Card>
 
